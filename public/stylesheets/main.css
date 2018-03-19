@@ -1,3 +1,9 @@
+body {
+
+	padding-top: 70px;
+}
+
+
 .thumbnail img
 {
 	width : 100%;
@@ -10,5 +16,20 @@
 
 .thumbnail .caption-full
 {
- padding : 9px;
+	padding : 9px;
+}
+
+.thumbnail .img-responsive
+{
+	width : 550px;
+	height: 400px;
+}
+
+.gridhome
+{
+/*	width: 100%;
+	height: 165px;
+	background-size: 145% 145%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;*/
 }
