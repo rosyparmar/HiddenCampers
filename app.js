@@ -143,6 +143,10 @@ app.post("/login", passport.authenticate("local",
     }), function(req, res){
 });
 
+app.get("/password_reset", function(req, res){
+	res.render("passreset");
+});
+
 app.get("/register", function(req, res){
 	res.render("register");
 });
