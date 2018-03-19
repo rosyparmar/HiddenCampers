@@ -1,0 +1,28 @@
+<% include ../styling/header %>
+
+<div class = "container">
+	<header class = "jumbotron">
+		<div class="container">
+			<h1><span class="glyphicon glyphicon-tent align-bottom" aria-hidden="true"></span> Welcome, Hidden Campers!</h1>
+			<p>View premium campsites across New England</p>
+		</div>
+	</header>
+
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+		<% campsites.forEach(function(campsite){ %>
+		<div class="col-md-3 col-sm-6">
+			<div class="thumbnail">
+				<img src ="<%= campsite.image %>">
+				<div class="caption">
+					<h4> <%= campsite.name%> </h4>
+				</div>
+				<p>
+					<a href="/campsites/<%= campsite._id %>" class="btn btn-primary">More Info</a>
+				</p>
+			</div>
+		</div>
+		<% }); %>
+	</div>
+</div>
+
+<% include ../styling/footer %>
