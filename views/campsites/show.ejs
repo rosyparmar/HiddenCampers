@@ -11,6 +11,9 @@
 					<h4><a><%= campsite.name %></a></h4>
 					<h5><%= campsite.location %></h5>
 					<p><%= campsite.description %></p>
+					<p>
+						<em>Submitted by : <%= campsite.author.username%></em>
+					</p>
 				</div>
 			</div>
 			<div class="well">
@@ -21,7 +24,7 @@
 				<% campsite.comments.forEach(function(comment){ %>
 				<div class="row">
 					<div class="col-md-12">
-						<strong><%= comment.author %></strong>
+						<strong><%= comment.author.username %></strong>
 						<span class="pull-right">10 days ago</span>
 						<p>
 							<%= comment.text %>
