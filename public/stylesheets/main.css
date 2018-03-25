@@ -4,32 +4,52 @@ body {
 }
 
 
-.thumbnail img
+#userGreeting
 {
-	width : 100%;
+	font-family: 'Love Ya Like A Sister', cursive;
+	text-align: center;
+
 }
 
-.thumbnail 
+#searchdesc 
 {
-	padding : 0;
+		text-align: center;
+
 }
 
-.thumbnail .caption-full
+.userprofile
 {
-	padding : 9px;
+	font-family: 'Amatic SC', cursive;
+	font-size : 25px;
+	font-weight: bold;
+
 }
 
-.thumbnail .img-responsive
+
+
+#hiddencampersgreeting
 {
-	width : 550px;
-	height: 400px;
+	font-family: 'Luckiest Guy', cursive;
+
 }
 
-.gridhome
+h4 
 {
-/*	width: 100%;
-	height: 165px;
-	background-size: 145% 145%;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;*/
+
+	font-family: 'Poiret One', cursive;
+	font-size : 24px;
+	font-weight: bold;
+
+}
+
+h5 
+{
+	font-family: 'Trocchi', serif;
+}
+
+h4 span
+{
+	font-family: 'Dancing Script', cursive;
+	font-size: 20px;
+	color : rgb(220,20,60);
 }

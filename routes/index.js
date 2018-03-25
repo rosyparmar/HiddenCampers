@@ -52,7 +52,10 @@ router.get("/register", function(req, res){
 });
 
 router.post("/register", function(req, res){
-	var newUser = new User({username: req.body.username});
+	var firstname = req.body.firstName;
+	var lastname = req.body.lastName;
+	var email = req.body.email;
+	var newUser = new User({ firstName : firstname , lastName : lastname, email : email, username: req.body.username});
 	User.register(newUser, req.body.password, function(err, user){
 		if(err){
 			console.log(err);

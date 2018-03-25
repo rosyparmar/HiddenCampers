@@ -4,6 +4,15 @@
 	<title>Hidden Campers</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/stylesheets/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Trocchi" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+
+
 </head>
 <body>
 
@@ -19,7 +28,7 @@
 					<li><a href="/login"><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i> Login</a></li>
 					<li><a href="/register"><i class="glyphicon glyphicon-user" aria-hidden="true"></i> Sign Up</a></li>
 					<% } else { %>
-					<li><a href="/user/<%= currentUser._id%>">Signed In As <%= currentUser.username %></a></li>
+					<li><a href="/user/<%= currentUser._id%>">Signed In as <%= currentUser.username %></a></li>
 					<li><a href="/campsites/add"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Add a Campsite</a></li>
 					<li><a href="/logout"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i> Logout</a></li>
 					<%}%>
