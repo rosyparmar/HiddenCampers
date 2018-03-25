@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router({mergeParams : true});
 var Campsite = require ("../models/campsite");
 var Comment = require ("../models/comment");
+var User = require("../models/user");
 
 
 
@@ -47,6 +48,8 @@ router.post("/", isLoggedIn, function(req, res){
 
 	});
 });
+
+
 
 function isLoggedIn(req, res, next){
 	if(req.isAuthenticated()){

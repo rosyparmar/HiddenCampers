@@ -1,0 +1,27 @@
+<% include ./styling/header %> 
+
+<h1> Hi <%= currentUser.username %> </h1>
+
+<div class = "container">
+
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+		<% campsites.forEach(function(campsite){ %>
+		<div class="col-md-3 col-sm-6">
+			<div class="thumbnail">
+
+				<a href="/campsites/<%= campsite._id %>"><img class="gridhome" src="<%= campsite.image %>" >
+
+					<div class="caption">
+						<h4> <%= campsite.name%> </h4>
+						<h5><em><%= campsite.location %></em></h5>
+					</div>
+				</div>
+			</div>
+			<% }); %>
+		</div>
+	</div></a></div></div></div></div>
+	
+
+
+
+	<% include ./styling/footer %> 
