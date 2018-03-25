@@ -11,7 +11,8 @@ seedDB      = require("./seeds");
 
 var commentRoutes = require("./routes/comments"),
 campsiteRoutes = require("./routes/campsites"),
-indexRoutes = require("./routes/index");
+indexRoutes = require("./routes/index"),
+userProfileRoute = require("./routes/user");
 
 //Passport Config
 app.use(require("express-session")({
@@ -41,6 +42,7 @@ seedDB();
 app.use(indexRoutes);
 app.use("/campsites", campsiteRoutes);
 app.use("/campsites/:id/comments", commentRoutes);
+app.use("/user/", userProfileRoute);
 
 app.listen(process.env.PORT, process.env.IP, function(){
 	console.log ("Server started!");
