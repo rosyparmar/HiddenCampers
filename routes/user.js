@@ -19,7 +19,6 @@ router.get("/:id", function(req,res){
 					}
 					else
 					{	
-
 						res.render("userProfile", {campsites : allCampsites, user : foundUser});
 
 					}

@@ -3,6 +3,8 @@ var router = express.Router();
 var passport = require("passport");
 var Campsite = require ("../models/campsite");
 var User = require("../models/user");
+var multer = require('multer'),
+filesys = require('fs');
 
 
 router.get("/", function(req,res){
@@ -21,8 +23,12 @@ router.get("/", function(req,res){
 	} else {
     // Get all camgrounds from DB
     Campsite.find({}, function(err, allCampsites) {
-    	if (err) { console.log(err); }
-    	else {
+    	if (err) 
+    	{ 
+    		console.log(err); 
+    	}
+    	else 
+    	{
     		res.render("campsites/index", { campsites: allCampsites, page: "campsites", noMatch: noMatch });  
     	}
     }); 
@@ -55,7 +61,12 @@ router.post("/register", function(req, res){
 	var firstname = req.body.firstName;
 	var lastname = req.body.lastName;
 	var email = req.body.email;
+	// var image = fs.readFileSync(req.files.userPhoto.path);
 	var newUser = new User({ firstName : firstname , lastName : lastname, email : email, username: req.body.username});
+	newUser.image.data = filesys.readFileSync(req.files.userPhoto.path);
+	newUser.image.contentType = 'image/png';
+	newUser.save();
+
 	User.register(newUser, req.body.password, function(err, user){
 		if(err){
 			console.log(err);

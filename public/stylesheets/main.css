@@ -17,6 +17,14 @@ body {
 
 }
 
+
+
+#hiddencampersgreeting
+{
+	font-family: 'Luckiest Guy', cursive;
+
+}
+
 .userprofile
 {
 	font-family: 'Amatic SC', cursive;
@@ -27,10 +35,9 @@ body {
 
 
 
-#hiddencampersgreeting
+.profilethumbnail
 {
-	font-family: 'Luckiest Guy', cursive;
-
+	color : black;
 }
 
 h4 

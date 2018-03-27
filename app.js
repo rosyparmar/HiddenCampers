@@ -32,8 +32,7 @@ app.use(function(req, res, next){
 });
 
 
-// mongoose.connect("mongodb://localhost/hidden_campers");
-mongoose.connect("mongodb://sarthak:hiddencampers@ds117749.mlab.com:17749/hiddencampersdb");
+mongoose.connect("mongodb://localhost/hidden_campers");
 app.set('port', process.env.PORT || 3000);
 
 app.use (bodyParser.urlencoded({extended : true}));
@@ -46,6 +45,6 @@ app.use("/campsites", campsiteRoutes);
 app.use("/campsites/:id/comments", commentRoutes);
 app.use("/user/", userProfileRoute);
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(app.get('port'), function(){
 	console.log ("Server started!");
 });
