@@ -48,6 +48,6 @@ app.use("/campsites", campsiteRoutes);
 app.use("/campsites/:id/comments", commentRoutes);
 app.use("/user/", userProfileRoute);
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(process.env.PORT || 3000, process.env.IP || '127.0.0.1', function(){
 	console.log ("Server started!");
 });
