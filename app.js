@@ -2,20 +2,32 @@ var express     = require("express"),
 app         = express(),
 bodyParser  = require("body-parser"),
 mongoose    = require("mongoose"),
+flash = require("connect-flash"),
 passport    = require("passport"),
 LocalStrategy = require("passport-local"),
-methodOverride = require("method-override"),
 Campsite  = require("./models/campsite"),
+methodOverride = require("method-override"),
 Comment     = require("./models/comment"),
-User        = require("./models/user"),
-seedDB      = require("./seeds");
+User        = require("./models/user");
 
 var commentRoutes = require("./routes/comments"),
 campsiteRoutes = require("./routes/campsites"),
 indexRoutes = require("./routes/index"),
 userProfileRoute = require("./routes/user");
 
-//Passport Config
+app.use (bodyParser.urlencoded({extended : true}));
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
+
+app.use(indexRoutes);
+app.use("/campsites", campsiteRoutes);
+app.use("/campsites/:id/comments", commentRoutes);
+app.use("/user/", userProfileRoute);
+app.use(flash());
+
+
+//Passport Configuration
 app.use(require("express-session")({
 	secret: "HiddenCampers rock!!",
 	resave: false,
@@ -32,21 +44,7 @@ app.use(function(req, res, next){
 	next();
 });
 
-
-// mongoose.connect("mongodb://localhost/hidden_campers");
 mongoose.connect("mongodb://sarthak:hiddencampers@ds117749.mlab.com:17749/hiddencampersdb");
-// app.set('port', process.env.PORT || 3000);
-
-app.use (bodyParser.urlencoded({extended : true}));
-app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
-app.use(methodOverride("_method"));
-seedDB();
-
-app.use(indexRoutes);
-app.use("/campsites", campsiteRoutes);
-app.use("/campsites/:id/comments", commentRoutes);
-app.use("/user/", userProfileRoute);
 
 app.listen(process.env.PORT, process.env.IP, function(){
 	console.log ("Server started!");

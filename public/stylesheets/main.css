@@ -17,7 +17,7 @@ body {
 
 }
 
-#delete-form{
+.delete-form{
 	
 	display: inline;
 }
@@ -35,7 +35,6 @@ body {
 	font-weight: bold;
 
 }
-
 
 
 .profilethumbnail
