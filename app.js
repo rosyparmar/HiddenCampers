@@ -26,7 +26,6 @@ app.use("/campsites/:id/comments", commentRoutes);
 app.use("/user/", userProfileRoute);
 app.use(flash());
 
-
 //Passport Configuration
 app.use(require("express-session")({
 	secret: "HiddenCampers rock!!",
