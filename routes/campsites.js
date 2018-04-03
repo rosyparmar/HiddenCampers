@@ -108,7 +108,7 @@ router.delete("/:id", campsiteOwnershipAuthentication, function(req, res){
 //Authentication to verify if the user is a campsite's owner
 function campsiteOwnershipAuthentication(req, res, next){
 	if(req.isAuthenticated()){
-		Campground.findById(req.params.id, function(err, foundCampground){
+		Campsite.findById(req.params.id, function(err, foundCampground){
 			if(err){
 				res.redirect("back");
 			}  else {
