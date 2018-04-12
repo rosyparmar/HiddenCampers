@@ -17,6 +17,19 @@
 				<h4><a><%= campsite.name %></a></h4>
 				<h5><%= campsite.location %></h5>
 				<p><%= campsite.description %></p>
+				<p>Features</p>
+				<ul>
+                    <% campsite.features.forEach(function(feature){ %>
+					<li><%= feature %></li>
+                    <% }) %>
+				</ul>
+				<p>Activities</p>
+				<ul>
+                    <% campsite.activities.forEach(function(activity){ %>
+					<li><%= activity %></li>
+                    <% }) %>
+				</ul>
+
 				<p>
 					<em>Submitted by : <%= campsite.author.username%></em>
 				</p>

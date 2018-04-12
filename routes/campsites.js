@@ -39,11 +39,13 @@ router.post("/", isLoggedIn,  function(req, res){
 	var image = req.body.image;
 	var desc = req.body.description;
 	var location = req.body.location;
+    var features = req.body.features;
+    var activities = req.body.activities;
 	var author = {
 		id : req.user._id,
 		username : req.user.username
 	};
-	var newCampsite = {name: name, image : image, description: desc, author: author, location : location};
+	var newCampsite = {name: name, image : image, description: desc, author: author, location : location, features: features, activities: activities};
 	Campsite.create(newCampsite, function(err, newlyCreatedCampsite){
 		if (err){
 			console.log(err);

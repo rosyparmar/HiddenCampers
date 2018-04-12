@@ -14,6 +14,8 @@ var campsiteSchema = new mongoose.Schema({
       username : String
    },
    location : String,
+   features: [String],
+   activities: [String],
    comments: [
    {
       type: mongoose.Schema.Types.ObjectId,
