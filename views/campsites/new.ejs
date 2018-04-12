@@ -1,5 +1,7 @@
 <% include ../styling/header %>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="container">
 	<div class="row">
 		<h1 style="text-align: center;">Create a new Campsite</h1>
@@ -17,6 +19,61 @@
 				<div class="form-group">
 					<input class="form-control" type="text" name="description" placeholder="Describe your campsite">
 				</div>
+
+				<h3> More Features:</h3>
+				<div class="form-group">
+					<input type="checkbox" name="toilet" value="toilet" onclick="myFunction()"> Toilets<br>
+
+				</div>
+				<div class="form-group">
+					<input type="checkbox" name="trash" value="trash"> Trash<br>
+
+				</div>
+				<div class="form-group">
+					<input type="checkbox" name="table" value="table"> Picnic Tables<br>
+
+				</div>
+				<div class="form-group">
+					<input type="checkbox" name="bbq" value="bbq"> Barbeque <br>
+
+				</div>
+
+				<h3> Activities: </h3>
+
+				<div class="form-group fa fa-bicycle">
+						<input type="checkbox" name="bike" value="Bike"> Biking<br>
+
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="fish" value="Fish" > Fishing<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="paddle" value="Paddle" > Paddling<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="swim" value="Swim" > Swimming<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="boat" value="Boat" > Boating<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="hike" value="Hike" > Hiking<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="snow" value="Snow" > Snow sports<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="wildlife" value="Wildlife" > Wildlife watching<br>
+				</div>
+
+
 				<div class="form-group">
 					<button class="btn btn-success btn-block">Submit!</button>
 				</div>
