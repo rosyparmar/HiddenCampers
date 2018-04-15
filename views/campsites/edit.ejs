@@ -4,12 +4,13 @@
 	<div class="row">
 		<h1 style="text-align: center;">Edit your Campsite</h1>
 		<div style="width:30%; margin: 30px auto;">
-			<form action="/campsites/<%= campsite._id%>?_method=PUT" method="POST">
+			<form action="/campsites/<%= campsite._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
 				<div class="form-group">
 					<input class="form-control" type="text" name="campsite[name]" value="<%= campsite.name %>">
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="campsite[image]" value="<%= campsite.image %>">
+					<label for="image">Image</label>
+					<input type="file" id="image" name="image" accept="image/*">
 				</div>
 				<div class="form-group">
 					<input class="form-control" type="text" name="campsite[location]" value="<%= campsite.location %>" required>
@@ -17,6 +18,59 @@
 				<div class="form-group">
 					<input class="form-control" type="text" name="campsite[description]" value="<%= campsite.description %>" >
 				</div>
+
+				<h3> More Features:</h3>
+				<div class="form-group">
+					<input type="checkbox" name="campsite[features]" value="<%= campsite.Toilets%>"> Toilets<br>
+
+				</div>
+				<div class="form-group">
+					<input type="checkbox" name="campsite[features]" value="<%= campsite.Trash%>"> Trash<br>
+
+				</div>
+				<div class="form-group">
+					<input type="checkbox" name="campsite[features]" value="<%= campsite.PicnicTable%>"> Picnic Tables<br>
+
+				</div>
+				<div class="form-group">
+					<input type="checkbox" name="campsite[features]" value="<%= campsite.Barbeque%>"> Barbeque <br>
+
+				</div>
+
+				<h3> Activities: </h3>
+
+				<div class="form-group">
+					<input type="checkbox" name="campsite[activities]" value="<%= campsite.Biking%>"> Biking<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="campsite[activities]" value="<%= campsite.Fishing%>" > Fishing<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="campsite[activities]" value="<%= campsite.Paddling%>" > Paddling<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="campsite[activities]" value="<%= campsite.Swimming%>" > Swimming<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="campsite[activities]" value="<%= campsite.Boating%>" > Boating<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="campsite[activities]" value="<%= campsite.Hiking%>" > Hiking<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="campsite[activities]" value="<%= campsite.SnowSports%>" > Snow sports<br>
+				</div>
+
+				<div class="form-group">
+					<input type="checkbox" name="campsite[activities]" value="<%= campsite.Wildlife%>" > Wildlife watching<br>
+				</div>
+
 				<div class="form-group">
 					<button class="btn btn-success btn-block">Update</button>
 				</div>

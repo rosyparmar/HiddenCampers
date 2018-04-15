@@ -1,4 +1,5 @@
 <% include ../styling/header %>
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
@@ -17,6 +18,9 @@
 				<h4><a><%= campsite.name %></a></h4>
 				<h5><%= campsite.location %></h5>
 				<p><%= campsite.description %></p>
+
+
+
 				<p>Features</p>
 				<ul>
                     <% campsite.features.forEach(function(feature){ %>
@@ -30,6 +34,7 @@
                     <% }) %>
 				</ul>
 
+				
 				<p>
 					<em>Submitted by : <%= campsite.author.username%></em>
 				</p>
@@ -44,7 +49,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<strong><%= comment.author.username %></strong>
-					<span class="pull-right">10 days ago</span>
+					<span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
 					<p>
 						<%= comment.text %>
 					</p>

@@ -43,6 +43,7 @@ router.post("/", isLoggedIn, function(req, res){
 					comment.save();
 					campsite.comments.push(comment);
 					campsite.save();
+					req.flash("success", "Successfully added comment!");
 					res.redirect("/campsites/" + campsite._id);
 				}
 			});
@@ -87,6 +88,7 @@ router.delete("/:comment_id", commentOwnershipAuthentication,  function(req, res
 		}
 		else
 		{
+			req.flash("success", "Comment Deleted!");
 			res.redirect("/campsites/" + req.params.id);
 		}
 
@@ -102,16 +104,19 @@ function commentOwnershipAuthentication(req, res, next){
 	if(req.isAuthenticated()){
 		Comment.findById(req.params.comment_id, function(err, foundComment){
 			if(err){
+				req.flash("error", "Comment not found!");
 				res.redirect("back");
 			}  else {
 				if(foundComment.author.id.equals(req.user._id)) {
 					next();
 				} else {
+					req.flash("error", "You do not have permission to do that!");
 					res.redirect("back");
 				}
 			}
 		});
 	} else {
+		req.flash("error", "You need to be logged in to do that!");
 		res.redirect("back");
 	}
 }
@@ -122,6 +127,7 @@ function isLoggedIn(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
 	}
+	req.flash("error", "You need to be logged in to do that!");
 	res.redirect("/login");
 }
 

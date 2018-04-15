@@ -36,12 +36,25 @@ router.get("/login", function(req,res){
 	res.render("login");
 });
 
-router.post("/login", passport.authenticate("local", 
-{
-	successRedirect: "/campsites",
-	failureRedirect: "/login"
-}), function(req, res){
+
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) { return next(err); }
+    if (!user) {
+      req.flash("error", "Invalid username or password");
+      return res.redirect('/login');
+    }
+    req.logIn(user, err => {
+      if (err) { return next(err); }
+      let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/campsites';
+      delete req.session.redirectTo;
+      req.flash("success", "Good to see you again, " + user.firstName);
+      res.redirect(redirectTo);
+    });
+  })(req, res, next);
 });
+
+
 
 router.get("/password_reset", function(req, res){
 	res.render("passreset");
@@ -58,10 +71,11 @@ router.post("/register", function(req, res){
 	var newUser = new User({ firstName : firstname , lastName : lastname, email : email, username: req.body.username});
 	User.register(newUser, req.body.password, function(err, user){
 		if(err){
-			console.log(err);
+			req.flash("error", err.message);
 			return res.render("register");
 		}
 		passport.authenticate("local")(req, res, function(){
+			req.flash("success", "Welcome to Hidden Campers " + user.username);
 			res.redirect("/campsites"); 
 		});
 	});
@@ -69,15 +83,9 @@ router.post("/register", function(req, res){
 
 router.get("/logout", function(req, res){
 	req.logout();
+	req.flash("success", "Successfully logged out!");
 	res.redirect("/campsites");
 });
-
-function isLoggedIn(req, res, next){
-	if(req.isAuthenticated()){
-		return next();
-	}
-	res.redirect("/login");
-}
 
 
 module.exports = router;

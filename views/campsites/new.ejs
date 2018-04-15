@@ -1,77 +1,75 @@
 <% include ../styling/header %>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <div class="container">
 	<div class="row">
 		<h1 style="text-align: center;">Create a new Campsite</h1>
 		<div style="width:30%; margin: 30px auto;">
-			<form action="/campsites" method="POST">
+			<form action="/campsites" method="POST" enctype="multipart/form-data">
 				<div class="form-group">
-					<input class="form-control" type="text" name="name" placeholder="name">
+					<input class="form-control" type="text" name="campsite[name]" placeholder="name">
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="image" placeholder="image url">
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                </div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="campsite[location]" placeholder="Where is it located?" required>
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="location" placeholder="Where is it located?" required>
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="text" name="description" placeholder="Describe your campsite">
+					<input class="form-control" type="text" name="campsite[description]" placeholder="Describe your campsite">
 				</div>
 
 				<h3> More Features:</h3>
 				<div class="form-group">
-					<input type="checkbox" name="features" value="Toilets"> Toilets<br>
+					<input type="checkbox" name="campsite[features]" value="Toilets"> Toilets<br>
+				</div>
+				<div class="form-group">
+					<input type="checkbox" name="campsite[features]" value="Trash"> Trash<br>
 
 				</div>
 				<div class="form-group">
-					<input type="checkbox" name="features" value="Trash"> Trash<br>
+					<input type="checkbox" name="campsite[features]" value="PicnicTable"> Picnic Tables<br>
 
 				</div>
 				<div class="form-group">
-					<input type="checkbox" name="features" value="Picnic Table"> Picnic Tables<br>
-
-				</div>
-				<div class="form-group">
-					<input type="checkbox" name="features" value="Barbeque"> Barbeque <br>
+					<input type="checkbox" name="campsite[features]" value="Barbeque"> Barbeque <br>
 
 				</div>
 
 				<h3> Activities: </h3>
 
-				<div class="form-group fa fa-bicycle">
-						<input type="checkbox" name="activities" value="Biking"> Biking<br>
-
+				<div class="form-group">
+						<input type="checkbox" name="campsite[activities]" value="Biking"> Biking<br>
 				</div>
 
 				<div class="form-group">
-					<input type="checkbox" name="activities" value="Fishing" > Fishing<br>
+					<input type="checkbox" name="campsite[activities]" value="Fishing" > Fishing<br>
 				</div>
 
 				<div class="form-group">
-					<input type="checkbox" name="activities" value="Paddling" > Paddling<br>
+					<input type="checkbox" name="campsite[activities]" value="Paddling" > Paddling<br>
 				</div>
 
 				<div class="form-group">
-					<input type="checkbox" name="activities" value="Swimming" > Swimming<br>
+					<input type="checkbox" name="campsite[activities]" value="Swimming" > Swimming<br>
 				</div>
 
 				<div class="form-group">
-					<input type="checkbox" name="activities" value="Boating" > Boating<br>
+					<input type="checkbox" name="campsite[activities]" value="Boating" > Boating<br>
 				</div>
 
 				<div class="form-group">
-					<input type="checkbox" name="activities" value="Hiking" > Hiking<br>
+					<input type="checkbox" name="campsite[activities]" value="Hiking" > Hiking<br>
 				</div>
 
 				<div class="form-group">
-					<input type="checkbox" name="activities" value="Snow Sports" > Snow sports<br>
+					<input type="checkbox" name="campsite[activities]" value="SnowSports" > Snow sports<br>
 				</div>
 
 				<div class="form-group">
-					<input type="checkbox" name="activities" value="Wildlife watching" > Wildlife watching<br>
+					<input type="checkbox" name="campsite[activities]" value="Wildlife" > Wildlife watching<br>
 				</div>
+
 
 
 				<div class="form-group">
